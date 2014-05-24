@@ -3,15 +3,21 @@ import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 
+import center.RealtimeMap;
 import leftpanel.WestPanel;
+import rightpanel.EastPanel;
+import southpanel.SouthPanel;
 import toppanel.TopBar;
 
 
 public class RFrame extends JFrame {
 	private static final int DEFAULT_WIDTH = 1200;
-	private static final int DEFAULT_HEIGHT = 800; 
+	private static final int DEFAULT_HEIGHT = 600; 
 	TopBar topBanana;
 	WestPanel westBanana;
+	EastPanel eastBanana;
+	SouthPanel southBanana;
+	RealtimeMap iceCreamScoop;
 	public RFrame(){
 		super();
 		this.setTitle("Wall-E");
@@ -19,11 +25,22 @@ public class RFrame extends JFrame {
 		
 		topBanana = new TopBar();
 		westBanana = new WestPanel();
+		eastBanana = new EastPanel();
+		southBanana = new SouthPanel();
+		iceCreamScoop = new RealtimeMap();
 		
 		this.getContentPane().add(topBanana,BorderLayout.NORTH);
 		this.getContentPane().add(westBanana, BorderLayout.WEST);
+		this.getContentPane().add(eastBanana, BorderLayout.EAST);
+		this.getContentPane().add(southBanana, BorderLayout.SOUTH);
+		this.getContentPane().add(iceCreamScoop, BorderLayout.CENTER);
 		
 		this.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//makes sure program shuts down when window closed
+		this.setResizable(false);
+		this.pack();
+		
+		//System.out.println(iceCreamScoop.getWidth() + "     " + iceCreamScoop.getHeight());
 	}
 	
 	public static void main(String[] args){
